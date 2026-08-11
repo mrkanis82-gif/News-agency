@@ -6,6 +6,8 @@ class Topic(models.Model):
 
     class Meta:
         ordering = ["name"]
+        verbose_name = "topic"
+        verbose_name_plural = "topics"
 
     def __str__(self):
         return self.name
@@ -28,8 +30,8 @@ class NewsPaper(models.Model):
     title = models.CharField(max_length=250)
     content = models.TextField()
     date = models.DateField()
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    redactor = models.ManyToManyField(Redactor, related_name="redactors")
+    topics = models.ManyToManyField(Topic, related_name="topics")
+    publishers = models.ManyToManyField(Redactor, related_name="redactors")
 
     def __str__(self):
         return self.title

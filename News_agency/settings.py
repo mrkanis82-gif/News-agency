@@ -127,4 +127,4 @@ MAILERS = {
     },
 }
 
-AUTH_USER_MODEL = "agency.User"
+AUTH_USER_MODEL = "agency.Redactor"

@@ -30,8 +30,8 @@ class NewsPaper(models.Model):
     title = models.CharField(max_length=250)
     content = models.TextField()
     date = models.DateField()
-    topics = models.ManyToManyField(Topic, related_name="topics")
-    publishers = models.ManyToManyField(Redactor, related_name="redactors")
+    topics = models.ManyToManyField(Topic, related_name="newspapers")
+    publishers = models.ManyToManyField(Redactor, related_name="newspapers")
 
     def __str__(self):
         return self.title

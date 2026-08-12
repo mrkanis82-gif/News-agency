@@ -1,6 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views import generic
 
 from agency.models import Topic, Redactor, NewsPaper
 
@@ -23,19 +24,36 @@ def index(request):
     return render(request, "agency/index.html", context=context)
 
 
-class NewsPaperListView(LoginRequiredMixin, ListView):
+class NewsPaperListView(LoginRequiredMixin, generic.ListView):
     model = NewsPaper
     template_name = "agency/newspapers_list.html"
     paginate_by = 10
 
 
-class RedactorListView(LoginRequiredMixin, ListView):
+class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
+    model = NewsPaper
+    success_url = reverse_lazy("agency:newspapers_list")
+
+
+class NewsPaperUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = NewsPaper
+    template_name = "agency/form_newspaper.html"
+    success_url = reverse_lazy("agency:newspapers_list")
+
+
+class NewsPaperDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = NewsPaper
+    template_name = "agency/confirm_delete.html"
+    success_url = reverse_lazy("agency:newspapers_list")
+
+
+class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
     template_name = "agency/redactors_list.html"
     paginate_by = 10
 
 
-class TopicListView(LoginRequiredMixin, ListView):
+class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
     template_name = "agency/topics_list.html"
     paginate_by = 10

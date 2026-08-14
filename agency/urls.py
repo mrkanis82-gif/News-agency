@@ -1,9 +1,12 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 from . import views
 from .views import index
 
 urlpatterns = [
+    path("login/", LoginView.as_view(), name="login"),
+    path("log_out/", LogoutView.as_view(), name="logout"),
     path("", index, name='index'),
     path("topic/", views.TopicListView.as_view(), name="topic-list"),
     path("topic/create/", views.TopicCreateView.as_view(), name="topic-create"),

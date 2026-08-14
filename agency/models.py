@@ -33,5 +33,10 @@ class NewsPaper(models.Model):
     topics = models.ManyToManyField(Topic, related_name="newspapers")
     publishers = models.ManyToManyField(Redactor, related_name="newspapers")
 
+    class Meta:
+        ordering = ["title"]
+        verbose_name = "newspaper"
+        verbose_name_plural = "newspapers"
+
     def __str__(self):
         return self.title

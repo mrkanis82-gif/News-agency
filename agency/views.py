@@ -26,7 +26,7 @@ def index(request):
 
 class NewsPaperListView(LoginRequiredMixin, generic.ListView):
     model = NewsPaper
-    template_name = "agency/newspapers_list.html"
+    template_name = "agency/newspaper_list.html"
     paginate_by = 10
 
 
@@ -50,7 +50,7 @@ class NewsPaperDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
-    template_name = "agency/redactors_list.html"
+    template_name = "agency/redactor_list.html"
     paginate_by = 10
 
 
@@ -74,7 +74,7 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
-    template_name = "agency/topics_list.html"
+    template_name = "agency/topic_list.html"
     paginate_by = 10
 
 

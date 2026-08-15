@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1> Newspapers list</h1>
+  <h1>
+    Newspapers list
+    <a href="{% url 'agency:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
   {% if newspaper_list %}
     <table>
       <tr>

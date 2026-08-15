@@ -3,6 +3,9 @@
 {% block content %}
   <h1>
     Car list
+    <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
   </h1>
   {% if topic_list %}
     <ul>

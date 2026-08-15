@@ -60,6 +60,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
+    fields = "__all__"
     success_url = reverse_lazy("agency:redactors_list")
     template_name = "agency/form_redactor.html"
 

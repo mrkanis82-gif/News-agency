@@ -13,9 +13,23 @@
       {% for newspaper in newspaper_list %}
       <tr>
         <td>{{ newspaper.id }}</td>
-        <td>{{ newspaper.title }}</td>
+        <td>
+          <a href="{% url 'agency:newspaper-detail' pk=newspaper.id %}">
+            {{ newspaper.title }}
+          </a>
+        </td>
         <td>{{ newspaper.topics }}</td>
         <td>{{ newspaper.date }}</td>
+        <td>
+          <a href="{% url 'agency:newspaper-update' pk=newspaper.id %}">
+            Update
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}">
+            Delete
+          </a>
+        </td>
       </tr>
       {% endfor %}
     </table>

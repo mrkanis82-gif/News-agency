@@ -30,6 +30,10 @@ class NewsPaperListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 10
 
 
+class NewsPaperDetailView(LoginRequiredMixin, generic.DetailView):
+    model = NewsPaper
+    template_name = "agency/newspaper_detail.html"
+
 class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = NewsPaper
     template_name = "agency/form_newspaper.html"

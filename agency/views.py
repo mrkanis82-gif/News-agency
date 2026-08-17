@@ -37,20 +37,22 @@ class NewsPaperDetailView(LoginRequiredMixin, generic.DetailView):
 
 class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = NewsPaper
+    fields = "__all__"
     template_name = "agency/form_newspaper.html"
-    success_url = reverse_lazy("agency:newspapers_list")
+    success_url = reverse_lazy("agency:newspaper-list")
 
 
 class NewsPaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = NewsPaper
+    fields = "__all__"
     template_name = "agency/form_newspaper.html"
-    success_url = reverse_lazy("agency:newspapers_list")
+    success_url = reverse_lazy("agency:newspaper-list")
 
 
 class NewsPaperDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = NewsPaper
     template_name = "agency/confirm_delete.html"
-    success_url = reverse_lazy("agency:newspapers_list")
+    success_url = reverse_lazy("agency:newspaper-list")
 
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
@@ -67,20 +69,21 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     form_class = forms.RedactorCreationForm
-    success_url = reverse_lazy("agency:redactors_list")
+    success_url = reverse_lazy("agency:redactor-list")
     template_name = "agency/form_redactor.html"
 
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
-    success_url = reverse_lazy("agency:redactors_list")
+    fields = ("username", "email", "first_name", "last_name", "years_of_experience")
+    success_url = reverse_lazy("agency:redactor-list")
     template_name = "agency/form_redactor.html"
 
 
 class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Redactor
     template_name = "agency/confirm_delete.html"
-    success_url = reverse_lazy("agency:redactors_list")
+    success_url = reverse_lazy("agency:redactor-list")
 
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
@@ -91,17 +94,19 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
 
 class TopicCreateView(LoginRequiredMixin, generic.CreateView):
     model = Topic
-    success_url = reverse_lazy("agency:topics_list")
+    fields = "__all__"
     template_name = "agency/form_topic.html"
+    success_url = reverse_lazy("agency:topic-list")
 
 
 class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Topic
+    fields = "__all__"
     template_name = "agency/form_topic.html"
-    success_url = reverse_lazy("agency:topics_list")
+    success_url = reverse_lazy("agency:topic-list")
 
 
 class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Topic
     template_name = "agency/confirm_delete.html"
-    success_url = reverse_lazy("agency:topics_list")
+    success_url = reverse_lazy("agency:topic-list")

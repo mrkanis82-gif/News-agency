@@ -29,7 +29,7 @@ class Redactor(AbstractUser):
 class NewsPaper(models.Model):
     title = models.CharField(max_length=250)
     content = models.TextField()
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     topics = models.ManyToManyField(Topic, related_name="newspapers")
     publishers = models.ManyToManyField(Redactor, related_name="newspapers")
 

@@ -3,7 +3,7 @@
   <h1>
     Newspapers list
     <a href="{% url 'agency:newspaper-create' %}" class="btn btn-primary link-to-page">
-      Create
+      Publish
     </a>
   </h1>
   {% if newspaper_list %}
@@ -14,6 +14,8 @@
         <th>Topics</th>
         <th>Publishers</th>
         <th>Date</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
       {% for newspaper in newspaper_list %}
       <tr>
@@ -23,7 +25,8 @@
             {{ newspaper.title }}
           </a>
         </td>
-        <td>{{ newspaper.topics }}</td>
+        <td>{{ newspaper.topics.all|join:", " }}</td>
+        <td>{{ newspaper.publishers.all|join:", " }}</td>
         <td>{{ newspaper.date }}</td>
         <td>
           <a href="{% url 'agency:newspaper-update' pk=newspaper.id %}">

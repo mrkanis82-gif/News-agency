@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} newspaper</h1>
+  <h1>{{ object|yesno:"Update,Publish" }} newspaper</h1>
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form }}

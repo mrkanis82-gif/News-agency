@@ -59,6 +59,11 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 10
 
 
+class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Redactor
+    template_name = "agency/redactor_detail.html"
+
+
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     form_class = forms.RedactorCreationForm

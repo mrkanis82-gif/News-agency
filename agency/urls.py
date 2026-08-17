@@ -18,6 +18,7 @@ urlpatterns = [
     path("newspaper/<int:pk>/delete/", views.NewsPaperDeleteView.as_view(), name="newspaper-delete"),
     path("newspaper/<int:pk>/update/", views.NewsPaperUpdateView.as_view(), name="newspaper-update"),
     path("redactor/", views.RedactorListView.as_view(), name="redactor-list"),
+    path("redactor/<int:pk>/detail", views.RedactorDetailView.as_view(), name="redactor-detail"),
     path("redactor/create/", views.RedactorCreateView.as_view(), name="redactor-create"),
     path("redactor/<int:pk>/update/", views.RedactorUpdateView.as_view(), name="redactor-update"),
     path("redactor/<int:pk>/delete/", views.RedactorDeleteView.as_view(), name="redactor-delete"),

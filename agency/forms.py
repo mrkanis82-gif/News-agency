@@ -11,7 +11,7 @@ class RedactorCreationForm(UserCreationForm):
         fields = ("username", "first_name", "last_name", "years_of_experience")
 
 
-class NewspaperCreationForm(forms.ModelForm):
+class NewspaperForm(forms.ModelForm):
     publishers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,

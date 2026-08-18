@@ -36,7 +36,7 @@ class NewsPaperDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "agency/newspaper_detail.html"
 
 class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
-    form_class = forms.NewspaperCreationForm
+    form_class = forms.NewspaperForm
     exclude = ["date"]
     template_name = "agency/form_newspaper.html"
     success_url = reverse_lazy("agency:newspaper-list")
@@ -44,7 +44,7 @@ class NewsPaperCreateView(LoginRequiredMixin, generic.CreateView):
 
 class NewsPaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = NewsPaper
-    fields = "__all__"
+    form_class =  forms.NewspaperForm
     template_name = "agency/form_newspaper.html"
     success_url = reverse_lazy("agency:newspaper-list")
 

@@ -25,7 +25,10 @@
         {% endblock %}
         <!-- Page content-->
         {% block content %}{% endblock %}
-        </div>
+        {% block pagination %}
+          {% include "includes/pagination.html" %}
+        {% endblock %}
+      </div>
     </div>
     <!-- Core theme JS-->
     <script src="{% static 'js/scripts.js' %}"></script>

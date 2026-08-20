@@ -1,19 +1,19 @@
 <div class="border-end bg-white" id="sidebar-wrapper">
   <div class="sidebar-heading border-bottom bg-light">News Agency</div>
   {% if user.is_authenticated %}
-  <div class="list-group list-group-flush">
-    <a
-        class="list-group-item list-group-item-action list-group-item-light p-3"
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-light p-3"
         href="{{ user.get_absolute_url }}">User: {{ user.get_username }}
-    </a>
-    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-    {% else %}
-    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'login'%}?next={{request.path}}">Login</a>
-    {% endif %}
-  </div>
+      </a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+  {% else %}
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'login'%}?next={{request.path}}">Login</a>
+  {% endif %}
   <div class="sidebar-heading border-bottom bg-light">News Agency</div>
     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'agency:index' %}">Home</a>
     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'agency:newspaper-list' %}">All newspaper</a>
     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'agency:redactor-list' %}">All redactors</a>
     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'agency:topic-list' %}">All topics</a>
+  </div>
 </div>

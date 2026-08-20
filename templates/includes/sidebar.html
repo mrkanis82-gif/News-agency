@@ -1,9 +1,9 @@
 <div class="border-end bg-white" id="sidebar-wrapper">
-  <div class="sidebar-heading border-bottom bg-light">News Agency</div>
+  <div class="sidebar-heading border-bottom bg-light">Account</div>
   {% if user.is_authenticated %}
     <div class="list-group list-group-flush">
       <a class="list-group-item list-group-item-action list-group-item-light p-3"
-        href="{{ user.get_absolute_url }}">User: {{ user.get_username }}
+        href="{{ user.get_absolute_url }}">{{ user.get_username }}
       </a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
   {% else %}

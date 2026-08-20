@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.urls import reverse
+
 
 class Topic(models.Model):
     name = models.CharField(max_length=250, unique=True)
@@ -25,6 +27,9 @@ class Redactor(AbstractUser):
 
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"
+
+    def get_absolute_url(self):
+        return reverse("agency:newspaper-detail", kwargs={"pk": self.pk})
 
 
 class NewsPaper(models.Model):

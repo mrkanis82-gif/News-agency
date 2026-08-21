@@ -24,7 +24,9 @@
           {% include "includes/navigation_bar.html" %}
         {% endblock %}
         <!-- Page content-->
-        {% block content %}{% endblock %}
+        <div class="container-fluid p-4">
+          {% block content %}{% endblock %}
+        </div>
         {% block pagination %}
           {% include "includes/pagination.html" %}
         {% endblock %}

@@ -1,24 +1,28 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <h1>
-    {{ newspaper.title }}
-    <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <h3>
+        {{ newspaper.title }}
+        <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger float-end ms-2">Delete</a>
+        <a href="{% url 'agency:newspaper-update' pk=newspaper.id %}" class="btn btn-warning float-end">Update</a>
+      </h3>
+    </div>
 
-    <a href="{% url 'agency:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
-  </h1>
-  <p>{{ newspaper.content }}</p>
-  <h1>
-    Redactors:
-  </h1>
+    <div class="card-body">
+      <p class="card-text">{{ newspaper.content }}</p>
+    </div>
+  </div>
   <hr>
-  <ul>
-    {% for redactor in newspaper.publishers.all %}
-      <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
-    {% endfor %}
-  </ul>
+  <div class="card">
+    <div class="card-header">Redactors</div>
+    <ul class="list-group list-group-flush">
+      {% for redactor in newspaper.publishers.all %}
+        <li class="list-group-item">
+          {{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <small class="text-muted">Published: {{ newspaper.date }}</small>
 {% endblock %}

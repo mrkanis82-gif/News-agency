@@ -89,7 +89,7 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
     template_name = "agency/topic_list.html"
-    paginate_by = 10
+    paginate_by = 9
 
 
 class TopicCreateView(LoginRequiredMixin, generic.CreateView):

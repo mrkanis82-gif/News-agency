@@ -5,7 +5,12 @@
       <a class="list-group-item list-group-item-action list-group-item-light p-3"
         href="{{ user.get_absolute_url }}">{{ user.get_username }}
       </a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+    <form method="post" action="{% url 'logout' %}?next={{request.path}}" class="d-inline">
+      {% csrf_token %}
+        <button type="submit" class="list-group-item list-group-item-action list-group-item-light p-3">
+            Logout
+        </button>
+    </form>
   {% else %}
     <div class="list-group list-group-flush">
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'login'%}?next={{request.path}}">Login</a>

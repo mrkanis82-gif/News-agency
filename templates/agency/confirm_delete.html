@@ -1,9 +1,30 @@
 {% extends "base.html" %}
+
+{% load crispy_forms_filters %}
+
 {% block content %}
-  <form method="post">
-      {% csrf_token %}
-      <p>Are you sure you want to delete "{{ object }}"?</p>
-      <button type="submit">Yes</button>
-      <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
-  </form>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-danger text-white">
+          <h4>Confirm Deletion</h4>
+        </div>
+        <div class="card-body">
+          <p class="lead">Are you sure you want to delete <strong>"{{ object }}"</strong>?</p>
+          <p class="text-muted">This action cannot be undone.</p>
+
+          <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="d-flex gap-2 mt-4">
+              <button type="submit" class="btn btn-danger">Yes, delete</button>
+              <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

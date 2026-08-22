@@ -17,7 +17,10 @@ class Topic(models.Model):
 
 
 class Redactor(AbstractUser):
-    years_of_experience = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    years_of_experience = models.IntegerField(
+        default=0,
+        validators=[MinValueValidator(0)]
+    )
 
 
     class Meta:

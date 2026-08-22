@@ -20,6 +20,7 @@ class NewspaperForm(forms.ModelForm):
         queryset=Topic.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
+
     class Meta:
         fields = "__all__"
         model = NewsPaper

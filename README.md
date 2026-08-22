@@ -18,7 +18,8 @@ News Agency is a web application for managing a news agency. Users can create ed
 ## How to Run
 1. Clone the repository
 2. Install dependencies: `pip install -r requirements.txt`
-3. Create a superuser: `python manage.py createsuperuser`
-4. Run the server: `python manage.py runserver`
-5. login using data of your superuser
-6. You have access to all Functionality
+3. Run migrations: `python manage.py migrate`
+4. Create a superuser: `python manage.py createsuperuser`
+5. Run the server: `python manage.py runserver`
+6. login using data of your superuser 
+7. You have access to all Functionality

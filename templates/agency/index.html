@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <div class="jumbotron bg-light p-5 rounded">
+    <h1 class="display-4">News Agency Home</h1>
+    <p class="lead">Welcome to Best Agency Ever!</p>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Topics</h5>
+          <p class="display-4 text-primary">{{ num_topics }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Redactors</h5>
+          <p class="display-4 text-success">{{ num_redactors }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Newspapers</h5>
+          <p class="display-4 text-info">{{ num_newspapers }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

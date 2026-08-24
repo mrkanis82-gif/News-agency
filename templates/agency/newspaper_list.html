@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    Newspapers list
+    <a href="{% url 'agency:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Publish
+    </a>
+  </h1>
+  {% if newspaper_list %}
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thed class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Topics</th>
+            <th>Publishers</th>
+            <th>Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thed>
+        {% for newspaper in newspaper_list %}
+        <tr>
+          <td>{{ newspaper.id }}</td>
+          <td>
+            <a href="{% url 'agency:newspaper-detail' pk=newspaper.id %}">
+              {{ newspaper.title }}
+            </a>
+          </td>
+          <td>{{ newspaper.topics.all|join:", " }}</td>
+          <td>{{ newspaper.publishers.all|join:", " }}</td>
+          <td>{{ newspaper.date }}</td>
+          <td>
+            <a href="{% url 'agency:newspaper-update' pk=newspaper.id %}" class="btn btn-warning">
+              Update
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger">
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <p>there is no newspapers yet</p>
+  {% endif %}
+{% endblock %}

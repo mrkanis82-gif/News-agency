@@ -23,3 +23,5 @@ News Agency is a web application for managing a news agency. Users can create ed
 5. Run the server: `python manage.py runserver`
 6. login using data of your superuser 
 7. You have access to all Functionality
+User:Test_User
+password: Test12345

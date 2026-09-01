@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
     "crispy_forms",
     "crispy_bootstrap5",
-    "bootstrap5",
 
     "agency",
 ]

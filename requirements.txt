@@ -4,8 +4,7 @@ black==26.5.1
 click==8.5.0
 colorama==0.4.6
 crispy-bootstrap5==2026.3
-Django==6.1
-django-bootstrap-v5==1.0.11
+Django==5.2
 django-crispy-forms==2.7
 flake8==7.3.0
 gunicorn==26.2.0
